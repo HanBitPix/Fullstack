@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: KleKE8FaH6lUkDHcJ3wLvD2MCGeQjXbe9TqUGk3jIyiAyAJLiiciS8vW4f3UyI9cDjW4OpIPZK9f2pbDUYfaY7j6mR42uxH82DAHlKxfihk1QX0e1SlkkidrfzFzIHmOnXqjtfXYY4r04ZgDQN1s16l2t5bMN11t4wVP9IaVGAa4ppkuFs2uZ8+pjE4XqvcV8gZl53n6L31MBY31qGP3hbr4sFDwb/i53a7eu9nd0lNRkHcSmUkRdZr30jVPrLjuxCZ30/YQVDrvBeJoT93/HLeSjob7oysM84sKEX0D+/TP078HxWi/7NPSKYCxt9q/80nFLKHNkC+RRsuYf3z/US3wzIKgJG0H9/EOezgXlASBgl2KvBD1963KmqpYrGVA2W5BzthJnppsA9CNqtE10gL7tPhO73Jzxr7FQpcoYZ0/mJVFlQyejaut28oAShRlxwoUSqA30ig+02/bFP40oDed5vuilr+mA3/w+aXDaENJmT2dhIRjUjZi06WiYfXyyf7uQFS1dDJ+EmwQu5IPMCN9esce9/l7kaLYopeLBBiFHu54/hRszabJzTd4HKW2ue57rTDqc0fzplC3uSXkN9zM5czg8hHJV64102fGc3y1dUvIg2IKxhSfWhLUDGxRo7JynEmY5oGazcbvQhwyp/gYqv0B1rcgN9F4bBRPrcg=
+  app: young-tundra-15408
+  on:
+    repo: HanBitPix/Fullstack
