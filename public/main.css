@@ -1,0 +1,104 @@
+/* Global */
+*{
+  box-sizing: border-box;
+}
+/* Header */
+
+header{
+  background-color: #2B244E;
+  height: 80px;
+}
+
+h1{
+  padding-top: 5px;
+}
+
+.logo{
+  color: #65DC96;
+}
+
+.logoY{
+  color: #FFFFFF;
+}
+
+/* Main */
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #65DC96;
+}
+
+.main-title{
+  color: #2B244E;
+  margin-top: 50px;
+}
+
+.titleY{
+  color: #FFFFFF;
+}
+
+.btn-dark-fill, .btn-dark-outline{
+  border-radius: 0;
+  width: 200px;
+  margin: 40px 20px;
+  height: 60px;
+}
+
+.btn-dark-fill{
+  color: #FFFFFF;
+  background-color: #2B244E;
+  border: none;
+}
+
+.btn-dark-outline{
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 2px solid #2B244E;
+}
+
+/* Sign Up Page */
+
+.input-group-prepend{
+  width: 125px;
+  background-color: #2B244E;
+}
+
+.input-group-text{
+  background-color: #2B244E;
+  border: none;
+  color: #65DC96;
+  min-width: 100px;
+}
+
+/* User Page */
+
+.box-fill{
+  display: inline-block;
+  background: #2B244E;
+  height: 100px;
+  width: 100px;
+}
+
+p{
+  color: white;
+  display: inline-block;
+  background: #2B244E;
+  height: 100px;
+  width: 100px;
+  line-height: 50px;
+  color: #65DC96;
+}
+
+.card-body{
+  background: #2B244E;
+}
+
+.card-title{
+  color: #65DC96;
+}
+
+.list-group-item{
+  background: #2B244E;
+  color: white;
+  border: 1px #65DC96 solid;
+}
