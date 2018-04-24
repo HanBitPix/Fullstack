@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FullStack Capstone</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid">
+      <h1 class="display-4 logo">T
+        <span class="logoY"> Y </span>T</h1>
+    </div>
+  </header>
+  <main>
+    <div class="container text-center mx-auto">
+      <h2 class="display-4 my-4">John Doe</h2>
+      <div class="row">
+        <p class="custom-box mx-auto col-5 mr-1">Total Goods
+          <br class="display-1">5</p>
+        <p class="custom-box mx-auto col-5 ml-1">Total Cost
+          <br>$1234.99</p>
+      </div>
+      <button type="button" class="col-12 mt-0 mx-auto btn-dark-fill w-100" style="color: #65DC96; height: 40px;">Create Product</button>
+
+      <div class="row products">
+        <!-- Card -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="card mb-5">
+            <img class="my-5 img-fluid" src="https://images-na.ssl-images-amazon.com/images/I/61nwVjadYAL._SL1000_.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 role="heading" class="card-title">Samsung Electronics UN65MU8000 65-Inch 4K Ultra HD Smart LED TV (2017 Model)
+              </h5>
+              <div id="accordion">
+                <div class="card-header bg-dark border-info" id="headingOne">
+                  <button role="button" class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne${bestBuyData.sku}"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Notes
+                  </button>
+                </div>
+                <!-- // headingOne -->
+
+                <div id="collapseOne${bestBuyData.sku}" class="collapse" aria-labelledby="Product Review" data-parent="#accordion">
+                  <div class="card-body py-3 px-1">
+                    <span>This is my notes and everything is good!</span>
+                  </div>
+                </div>
+                <!-- // collapseOne -->
+
+                <div class="card-header bg-dark border-info" id="headingTwo">
+                  <button role="button" class="btn btn-link collapsed text-white" data-toggle="collapse" data-target="#collapseTwo${bestBuyData.sku}"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    Product Info
+                  </button>
+                </div>
+                <!-- // headingTwo-->
+
+                <!-- Product Info -->
+                <div id="collapseTwo${bestBuyData.sku}" class="collapse" aria-labelledby="Product Images" data-parent="#accordion">
+                  <!-- Table Start -->
+                  <table class="table text-center table-sm table-hover table-bordered">
+                    <tbody role="rowgroup">
+                      <tr role="row">
+                        <th role="rowheader" scope="row">Brand</th>
+                        <td role="cell">Samsung</td>
+                      </tr>
+                      <tr role="row">
+                        <th role="rowheader" scope="row">Cost</th>
+                        <td role="cell">$399.95</td>
+                      </tr>
+                      <tr role="row">
+                        <th role="rowheader" scope="row">Purchased</th>
+                        <td role="cell" class="model-number">10/2017</td>
+                      </tr>
+                      <tr role="row">
+                        <th role="rowheader" scope="row">Quantity</th>
+                        <td role="cell">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- // table -->
+                </div>
+                <!-- // Product Info -->
+              </div>
+            </div>
+            <!-- End of Container-->
+          </div>
+        </div>
+        <!-- End of Card -->
+      </div>
+      <!-- End of Row -->
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -79,7 +79,7 @@ body{
   width: 100px;
 }
 
-p{
+.custom-box{
   color: white;
   display: inline-block;
   background: #2B244E;
@@ -101,4 +101,27 @@ p{
   background: #2B244E;
   color: white;
   border: 1px #65DC96 solid;
+}
+
+.card{
+  min-width: 50%;
+}
+
+/* Item Page */
+
+.card-img-top{
+  min-height: 50%;
+}
+
+.card-text{
+  color: white;
+}
+
+label{
+  color:#2B244E;
+  font-size: 1.2rem;
+}
+
+td, th, span{
+  color: white;
 }
