@@ -1,5 +1,5 @@
 # Track Your Tech
-> [TYT Homepage](https://young-tundra-15408.herokuapp.com/user/login)<br>
+> [TYT Homepage](https://young-tundra-15408.herokuapp.com/)<br>
 > Create your own product to track
 
 ## Motivation
