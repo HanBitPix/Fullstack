@@ -14,10 +14,7 @@ before((done) => {
     });
 });
 
-// for each test, will drop the collection to start fresh
-// after((done) => {
-//   mongoose.connection.collections.users.drop(() => {
-//     done();
-//   });
-// });
+after(() => {
+  mongoose.connection.collections.users.drop();
+});
 

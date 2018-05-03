@@ -16,7 +16,7 @@ describe('Create Product(s)', () => {
       done();
     });
   });
-  
+
   it('creates one product', (done) => {
     const pixelbook = new Product({
       productName: 'PixelBook',

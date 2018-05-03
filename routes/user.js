@@ -27,8 +27,6 @@ router.get('/login', (req, res) => {
 
 // Login from POST
 router.post('/login', (req, res, next) => {
-  console.log(req.body);
-  console.log(req.rawHeaders)
   passport.authenticate('local', {
     successRedirect: '/item',
     failureRedirect: '/user/login',

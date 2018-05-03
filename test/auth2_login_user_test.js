@@ -1,79 +1,50 @@
 'use strict';
 
+//  Requires
 const expect = require('chai').expect;
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-// const assert = require('assert');
-// const should = chai.should();
-// const request = require('supertest');
-const mongoose = require('mongoose');
-// const User = require('../models/User');
 
-mongoose.Promise = global.Promise;
+// Chai Http
+chai.use(chaiHttp);
 
+// Require from App.js
 const {
   app,
   runServer,
   closeServer
 } = require('../app');
 
-chai.use(chaiHttp);
-
+// Will be using this login Credentials
 const userCredentials = {
-  email: "jake@jake.com",
-  password: "jake"
+  email: 'test@test.com',
+  password: 'test'
 };
 
-var authenticatedUser = chai.request.agent(app);
+// To Hold Auth User Login because of passport
+const authenticatedUser = chai.request.agent(app);
 
-before((done) => {
-  mongoose.connect('mongodb://localhost/fullstack_test');
-  mongoose.connection
-    .once('open', () => {
-      done();
-    })
-    .on('error', (error) => {
-      console.warn('Warning', error);
-    });
-});
+describe('Login with auth user', () => {
 
-describe('something to do', () => {
-
-  
-  // Creating a test user
-  const registerUser = {
-    name: 'jake',
-    email: 'jake@jake.com',
-    password: 'jake',
-    password2: 'jake'
-  };
-
-  before((done) => {
-    // To drop collection before going through auth login
-    mongoose.connection.collections.users.drop();
-    chai.request(app)
-      .post('/user/register')
-      .send(registerUser)
-      .then(function (res) {
-        done();
-      });
+  before(function() {
+    return runServer();
   });
 
-  it('should return a 200 response if the user is logged in', function () {
+  after(function() {
+    return closeServer();
+  });
+
+  it('should return a 200 response if the user is logged in plus should be at /item', function () {
 
     return authenticatedUser
       .post('/user/login')
-      // .set('Connection', 'keep-alive')
-      .send({
-        email: "jake@jake.com",
-        password: "jake"
-      })
+      .send(userCredentials)
       .then(function (res) {
         authenticatedUser
           .get('/item')
           .then(function (res) {
-            console.log(res.text);
             expect(res.statusCode === 200);
+            expect(res.req.path === '/item');
           });
       });
   });
