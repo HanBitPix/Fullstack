@@ -34,6 +34,12 @@ const user = require('./routes/user');
 require('./config/passport')(passport);
 
 //****************************************************
+// Database Config
+//****************************************************
+
+const db = require('./config/database');
+
+//****************************************************
 // Gets public static files 
 //****************************************************
 
@@ -49,7 +55,7 @@ mongoose.Promise = global.Promise;
 // Connec to mongoose
 //****************************************************
 
-mongoose.connect('mongodb://localhost/fullstack')
+mongoose.connect(db.mongoURI)
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.error(err));
 
@@ -137,7 +143,7 @@ app.use('/user', user);
 let server;
 
 function runServer() {
-  const port = /*process.env.PORT ||*/ 8080;
+  const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
       console.log(`Your app is listening on port ${port}`);
