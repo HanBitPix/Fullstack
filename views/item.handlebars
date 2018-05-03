@@ -1,12 +1,12 @@
 {{!-- get '/item/:id' --}}
-<main>
+<main role="main">
   <div class="container text-left">
     <div class="row">
       <div class="mx-auto col-12 col-md-10 col-xl-8">
         <div class="my-4 card card-body">
           <img class="card-img-top img-thumbnail img-fluid" src="{{product.imageURL}}" alt="{{product.productName}}">
           <div class="card-body">
-            <h5 class="card-title">{{product.productName}}</h5>
+            <h5 role="heading" class="card-title">{{product.productName}}</h5>
             <p class="card-text">{{product.notes}}</p>
             <div class="text-white row my-3 d-flex justify-content-around">
               <span class="col-5 mx-1 btn-item btn bg-green">{{product.brand}}</span>
@@ -18,12 +18,12 @@
             </div>
 
             {{!-- Delete Item --}}
-            <form action="/item/{{product._id}}?_method=DELETE" method="post">
+            <form role="form" action="/item/{{product._id}}?_method=DELETE" method="post">
               <input type="hidden" name="_method" value="DELETE">
-              <input type="submit" class="my-2 btn btn-block btn-danger" value="Delete">
+              <input role="button" type="submit" class="my-2 btn btn-block btn-danger" value="Delete">
             </form>
             {{!-- Edit Product --}}
-            <a href="./{{product._id}}/edit" class=" text-white btn btn-block btn-warning">Edit</a>
+            <a role="link" href="./{{product._id}}/edit" class=" text-white btn btn-block btn-warning">Edit</a>
 
           </div>
         </div>

@@ -1,13 +1,13 @@
 {{!-- get '/item' --}}
 
-<main>
+<main role="main">
   <div class="container text-center">
 
     {{!-- Row 1 --}}
     <div class="row mx-auto">
       {{!-- Title Card --}}
       <div class="col-md-12 bg-green mx-auto mt-4 card py-3">
-        <h3 style="color:white;" class="display-5">
+        <h3 role="heading" style="color:white;" class="display-5">
           Hello, {{user.name}}
         </h3>
       </div>
@@ -18,13 +18,13 @@
       <div class="card text-white bg-green">
         <div class="card-header">Total Product(s)</div>
         <div class="card-body">
-          <h5 class="card-title">{{products.length}}</h5>
+          <h5 role="heading" class="card-title">{{products.length}}</h5>
         </div>
       </div>
       <div class="card text-white bg-green">
         <div class="card-header">Total Cost</div>
         <div class="card-body">
-          <h5 class="card-title">${{totalCost}}</h5>
+          <h5 role="heading" class="card-title">${{totalCost}}</h5>
         </div>
       </div>
     </div>
@@ -36,17 +36,17 @@
       {{#each products}}
       <div class="col-sm-6 col-lg-4 col-xl-3 mt-4">
       <div class="card bg-light">
-        <a href="/item/{{_id}}">
+        <a role="link" href="/item/{{_id}}">
         <img class="card-img-top img-even img-thumbnail" src="{{imageURL}}" alt="{{productName}}">
         </a>
-        <a href="/item/{{_id}}">
+        <a role="link" href="/item/{{_id}}">
         <div class="card-header text-dark">{{productName}}</div></a>
         {{!-- Accordian --}}
         <div id="accordion">
           {{!-- First Collapse --}}
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne${{_id}}" aria-expanded="true" aria-controls="collapseOne">
+              <h5 role="heading" class="mb-0">
+                <button role="button" class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne${{_id}}" aria-expanded="true" aria-controls="collapseOne">
                   Notes
                 </button>
               </h5>
@@ -59,8 +59,8 @@
             </div>
             {{!-- Second Collapse --}}
              <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseTwo${{_id}}" aria-expanded="true" aria-controls="collapseTwo">
+              <h5 role="heading" class="mb-0">
+                <button role="button" class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseTwo${{_id}}" aria-expanded="true" aria-controls="collapseTwo">
                   Product Info
                 </button>
               </h5>
@@ -68,7 +68,7 @@
           
             <div id="collapseTwo${{_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                <!-- Table Start -->
-                  <table class="table text-dark mb-0 table-hover table-bordered">
+                  <table role="table" class="table text-dark mb-0 table-hover table-bordered">
                     <tbody role="rowgroup">
                       <tr role="row">
                         <th role="rowheader" scope="row">Brand</th>
@@ -100,7 +100,7 @@
     {{!-- End Row of Products --}}
     
     {{!-- If No Products are found than show that --}}
-     <h3 class="mt-5 text-white display-4 text-center">No Product(s) Created</h3>
+     <h3 role="heading" class="mt-5 text-white display-4 text-center">No Product(s) Created</h3>
     {{/each}}
 
   </div> {{!-- End of container --}}
