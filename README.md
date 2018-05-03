@@ -18,13 +18,14 @@ This app helps me track of all my tech and see if I'm still under the warranty.
 - Purchase date
 
 ## Built With
-### MEN || Mongo, Express, Node
+### Mongo, Express, Node
 
 ## Tested
 ### Mocha & Chai
 
 ## How to with Screenshots
 
+![Step 1](/'how to images'/1.png)
 
 ## Developer
 Jacob Han
