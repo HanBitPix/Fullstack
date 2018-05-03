@@ -25,7 +25,7 @@ This app helps me track of all my tech and see if I'm still under the warranty.
 
 ## How to with Screenshots
 
-![Step 1](/'how to images'/1.png)
+<img src="screenshots/1.png">
 
 ## Developer
 Jacob Han
