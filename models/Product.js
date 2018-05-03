@@ -32,7 +32,17 @@ const ProductSchema = new Schema({
   purchaseDate:{
     type: String,
     required: true
+  },
+  user: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
-mongoose.model('products', ProductSchema);
+const Product = mongoose.model('products', ProductSchema);
+
+module.exports = Product;

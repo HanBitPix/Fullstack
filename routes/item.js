@@ -7,6 +7,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
 
 //****************************************************
 // Load Product Model to use
@@ -15,12 +16,37 @@ const router = express.Router();
 require('../models/Product');
 const Product = mongoose.model('products');
 
+
+//****************************************************
+// INDEX item page
+//****************************************************
+
+router.get('/', ensureAuthenticated, (req, res) => {
+  Product.find({user: req.user.id})
+    .sort({
+      purchaseDate: 'desc'
+    })
+    .then(products => {
+
+      let totalCost = 0;
+
+      for (let i = 0; i < products.length; i++){
+        totalCost += products[i].cost;
+      }
+
+      res.render('user/user', {
+        products: products,
+        totalCost: totalCost.toFixed(2)
+      });
+    });
+});
+
 //****************************************************
 // CREATE 
 //****************************************************
 
 // Create Item Route
-router.get('/createitem', (req, res) => {
+router.get('/createitem', ensureAuthenticated, (req, res) => {
   res.render('products/createItem');
 });
 
@@ -90,13 +116,14 @@ router.post('/createitem', (req, res) => {
       quantity: req.body.quantity,
       notes: req.body.notes,
       imageURL: req.body.imageURL,
+      user: req.user.id,
       purchaseDate: req.body.purchaseDate
     }
     new Product(newUser)
       .save()
       .then(product => {
         req.flash('success_msg', 'Product was created!');
-        res.redirect('/user');
+        res.redirect('/item');
       });
   }
 });
@@ -105,14 +132,19 @@ router.post('/createitem', (req, res) => {
 // READ 
 //****************************************************
 
-router.get('/:id/', (req, res) => {
+router.get('/:id', ensureAuthenticated, (req, res) => {
   Product.findOne({
     _id: req.params.id
   })
     .then(product => {
-      res.render('item', {
-        product: product
-      });
+      if(product.user !== req.user.id){
+        req.flash('error_msg', 'Not Authorized');
+        res.redirect('/item');
+      } else{
+        res.render('item', {
+          product: product
+        });
+      } 
     });
 });
 
@@ -121,14 +153,19 @@ router.get('/:id/', (req, res) => {
 //****************************************************
 
 // Link to edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', ensureAuthenticated, (req, res) => {
   Product.findOne({
     _id: req.params.id
   })
     .then(product => {
-      res.render('products/edit', {
-        product: product
-      });
+      if(product.user !== req.user.id){
+        req.flash('error_msg', 'Not Authorized');
+        res.redirect('/item');
+      } else{
+        res.render('products/edit', {
+          product: product
+        });
+      }  
     });
 });
 
@@ -150,7 +187,7 @@ router.put('/:id', (req, res) => {
       product.save()
         .then(product => {
           req.flash('success_msg', 'Product was updated!');
-          res.redirect('/user');
+          res.redirect('/item');
         })
     });
 });
@@ -163,7 +200,7 @@ router.delete('/:id', (req, res) => {
   Product.remove({_id: req.params.id})
     .then(() => {
       req.flash('success_msg', 'Product Deleted');
-      res.redirect('/user');
+      res.redirect('/item');
     }); 
 });
 

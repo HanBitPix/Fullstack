@@ -1,34 +1,33 @@
+{{!-- get '/item/:id' --}}
 <main>
-  <div class="container-fluid mt-4 col-xl-6 col-lg-8 col-md-10">
-    <div class="card">
-      <img class="card-img-top img-fluid" src="{{product.imageURL}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{product.productName}}</h5>
-        <p class="card-text">{{product.notes}}</p>
-        <div class="row my-3 d-flex justify-content-around">
-          <span class="col-5 mx-1 btn-item btn btn-outline-success">{{product.brand}}</span>
-          <span class="col-5 mx-1 btm-item btn btn-outline-success">Cost: ${{product.cost}}</span>
-        </div>
-        <div class="row my-3 d-flex justify-content-around">
-          <span class="col-5 mx-1 btn-item btn btn-outline-success">{{product.purchaseDate}}</span>
-          <span class="col-5 mx-1 btm-item btn btn-outline-success">Quantity: {{product.quantity}}</span>
-        </div>
-        <div class="row my-1 d-flex justify-content-around">
-          {{!-- Delete Item --}}
-          <form action="/item/{{product._id}}?_method=DELETE" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" class="mb-2 btn btn-outline-danger" value="Delete">
-          </form>
-          {{!-- Edit Product --}}
-          <a href="./{{product._id}}/edit" class="btn btn-block btn-outline-warning">Edit</a>
+  <div class="container text-left">
+    <div class="row">
+      <div class="mx-auto col-12 col-md-10 col-xl-8">
+        <div class="my-4 card card-body">
+          <img class="card-img-top img-thumbnail img-fluid" src="{{product.imageURL}}" alt="{{product.productName}}">
+          <div class="card-body">
+            <h5 class="card-title">{{product.productName}}</h5>
+            <p class="card-text">{{product.notes}}</p>
+            <div class="text-white row my-3 d-flex justify-content-around">
+              <span class="col-5 mx-1 btn-item btn bg-green">{{product.brand}}</span>
+              <span class="col-5 mx-1 btm-item btn bg-green">Cost: ${{product.cost}}</span>
+            </div>
+            <div class="text-white row my-3 d-flex justify-content-around">
+              <span class="col-5 mx-1 btn-item btn bg-green">{{product.purchaseDate}}</span>
+              <span class="col-5 mx-1 btm-item btn bg-green">Quantity: {{product.quantity}}</span>
+            </div>
+
+            {{!-- Delete Item --}}
+            <form action="/item/{{product._id}}?_method=DELETE" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" class="my-2 btn btn-block btn-danger" value="Delete">
+            </form>
+            {{!-- Edit Product --}}
+            <a href="./{{product._id}}/edit" class=" text-white btn btn-block btn-warning">Edit</a>
+
+          </div>
         </div>
       </div>
-      <!-- End of body -->
     </div>
-    <!-- End of card -->
-
   </div>
-  <!-- End of container -->
-
-
 </main>
